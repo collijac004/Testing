@@ -32,11 +32,11 @@
     </style>
 </head>
 <body>
-    <h1 id = "headbox"> load the game below  &copy;</h1>
+    <h1 id = "headbox"> Load the file below  &copy;</h1>
     <br>
 
     <div id="file-input-container">
-        <label for="htmlFileInput">Choose an .html file from your computer <b>(For example: Eaglercraft112.html)<b>:</label>
+        <label for="htmlFileInput">Choose an .html file from your computer <b>(For example: blahblahblah.html or blahblahblah.htm)<b>:</label>
         <br>
         <br>
         <input type="file" id="htmlFileInput" accept=".html, .htm">
