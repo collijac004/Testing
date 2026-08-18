@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML File Viewer</title>
+    <style>
+        body {
+            font-family:cursive;
+            margin: 20px;
+            background-color: lightblue;
+            
+        }
+
+        #file-input-container {
+            margin-bottom: 20px;
+            background-color:gray;
+            padding: 13px;
+            border-radius:1rem;
+            height: 350px;
+            font-size: 23px;
+        }
+        #headbox{
+          margin-bottom: 20px;
+          background-color:white;
+          padding: 13px;
+          width: 600px;
+          margin-right: 50px;
+          box-shadow: 2px 2px 5px red;
+        }
+        #htmlFileInput{
+          
+        }
+    </style>
+</head>
+<body>
+    <h1 id = "headbox"> load the game below  &copy;</h1>
+    <br>
+
+    <div id="file-input-container">
+        <label for="htmlFileInput">Choose an .html file from your computer <b>(For example: Eaglercraft112.html)<b>:</label>
+        <br>
+        <br>
+        <input type="file" id="htmlFileInput" accept=".html, .htm">
+    </div>
+
+    <script>
+        document.getElementById('htmlFileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0]; // Get the selected file.
+
+            if (file) {
+                const reader = new FileReader(); // Create a FileReader object.
+
+                reader.onload = function(e) {
+                    const htmlContent = e.target.result; // Get the HTML content as a string.
+
+                    // Open a new "about:blank" window or tab.
+                    const newWindow = window.open('about:blank', '_blank');
+
+                    // Write the HTML content into the new window's document.
+                    if (newWindow) {
+                        newWindow.document.write(htmlContent);
+                        newWindow.document.close(); // Close the document to ensure the content is fully loaded.
+                    } else {
+                        alert('Could not open a new window. Please check your browser settings for pop-ups.');
+                    }
+                };
+
+                reader.readAsText(file); // Read the file as text.
+            }
+        });
+    </script>
+</body>
+</html>
